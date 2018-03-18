@@ -1,0 +1,14 @@
+body {
+    text-align: center;
+}
+
+#page-header {
+    background-color: #660033;
+    text-align: center;
+    color: white;
+}
+
+a {
+    margin-right: 10%;
+    margin-left: 10%;
+}
