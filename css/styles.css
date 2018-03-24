@@ -8,7 +8,11 @@ body {
     color: white;
 }
 
-a {
+#toolbar {
     margin-right: 10%;
     margin-left: 10%;
+}
+
+.tag {
+    color: #660033;
 }

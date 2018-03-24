@@ -10,7 +10,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.4/css/bootstrap.min.css" 
         integrity="sha384-2hfp1SzUoho7/TsGGGDaFdsuuDL0LX2hnUp6VkX3CUQ2K4K+xjboZdsXyp4oUHZj" crossorigin="anonymous">
     
-        <link rel="stylesheet" href="styles.css"/>
+        <link rel="stylesheet" href="css/styles.css"/>
 
     </head>
 
@@ -18,10 +18,15 @@
         <div class="jumbotron" id="page-header">
             <h1>Tune Tracker</h1>
             <span id="navbar">
-                <a>Discover</a>
-                <a>Recommended</a>
-                <a>Profile</a>
+                <a id="toolbar">Discover</a>
+                <a id="toolbar">Recommended</a>
+                <a id="toolbar">Profile</a>
             </span>
         </div>
+
+        <div id="popular-artists" class="row">
+        </div>
+
+        <script src="scripts/tune-tracker.js"></script>
     </body>
 </html>
