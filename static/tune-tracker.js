@@ -45,17 +45,25 @@ function render() {
       model.popularArtists.artists.artist.forEach(function(artist) {
         //x++;
         //var xString = x.toString();
-
         //var artistSpan = "<span id='artist" + xString + "></span>";
-
+        
+        //var artistUrl = artist.url
+        /*
+        $("<a id='artist-link'></a>")
+        .attr("href", artistUrl);
+        $('#popular-artists').append(artistUrl);
+        */
         var title = "<h6>" + artist["name"] + "</h6>";
         //var image = "<img src='" + artist.image[0].text + "' />"
-        var image = "<img id='band-img' src='https://lastfm-img2.akamaized.net/i/u/174s/81d5e41b894042efb6798ea312878612.png'>";
+        var image = "<img id='band-img' src=" + artist.image[2]["#text"] + ">";
       
         var artistSpan = $('<span></span>')
         .attr("class", "tag")
         .append(image)
         .append(title);
+
+        //$('band-img').attr("href", artistUrl);
+
         $('#popular-artists').append(artistSpan);
 
         //var artistId = "artist" + xString;
