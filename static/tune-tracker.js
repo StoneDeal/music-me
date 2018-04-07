@@ -53,11 +53,14 @@ function render() {
         .attr("href", artistUrl);
         $('#popular-artists').append(artistUrl);
         */
-        var title = "<h6>" + artist["name"] + "</h6>";
+        var artistHref = "/artist?artist=" + artist.mbid;
+        console.log(artist.mbid)
+        var title = "<br/><a id='artist-name' href='" + artistHref + "'>" + artist["name"] + "</a>";
         //var image = "<img src='" + artist.image[0].text + "' />"
         var image = "<img id='band-img' src=" + artist.image[2]["#text"] + ">";
+        
       
-        var artistSpan = $('<span></span>')
+        var artistSpan = $("<span></span>")
         .attr("class", "tag")
         .append(image)
         .append(title);
@@ -65,6 +68,7 @@ function render() {
         //$('band-img').attr("href", artistUrl);
 
         $('#popular-artists').append(artistSpan);
+        //$('#band-img').attr("href", artistHref);
 
         //var artistId = "artist" + xString;
         //$('#popular-artists').append(image);

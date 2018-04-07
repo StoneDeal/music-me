@@ -15,10 +15,23 @@
     </head>
 
     <body>
-        <div class="jumbotron" id="page-header">
+
+        <div id="login-bar" style='float: right'>
+            {% if 'user' in session %}
+            {{ session['user'] }}
+            <form action="/logout" method="post" id='logout'>
+                <input type="submit" value="Log Out" />
+            </form>
+            {% else %}
+            <a href="/login">login</a> | <a href="/signup">register</a>
+            {% endif %}
+        </div>
+
+        <div class="jumbotron" id="page-header">  
+
             <h1>Tune Tracker</h1>
             <span id="navbar">
-                <a id="toolbar">Discover</a>
+                <a id="toolbar" href="/">Home</a>
                 <a id="toolbar">Recommended</a>
                 <a id="toolbar">Profile</a>
             </span>
