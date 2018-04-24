@@ -54,8 +54,8 @@ function render() {
         $('#popular-artists').append(artistUrl);
         */
         var artistHref = "/artist?artist=" + artist.mbid;
-        console.log(artist.mbid)
-        var title = "<br/><a id='artist-name' href='" + artistHref + "'>" + artist["name"] + "</a>";
+        
+        var title = "<br/><h6><a id='artist-name' href='" + artistHref + "'>" + artist["name"] + "</a></h6>";
         //var image = "<img src='" + artist.image[0].text + "' />"
         var image = "<img id='band-img' src=" + artist.image[2]["#text"] + ">";
         

@@ -12,6 +12,19 @@
     
         <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}"/>
 
+        <script src="https://www.gstatic.com/firebasejs/4.12.1/firebase.js"></script>
+        <script>
+          var config = {
+            apiKey: "AIzaSyAhMfFvDLR5sq-kMuntuSIdgcCGoXP3zRc",
+            authDomain: "tune-tracker.firebaseapp.com",
+            databaseURL: "https://tune-tracker.firebaseio.com",
+            projectId: "tune-tracker",
+            storageBucket: "",
+            messagingSenderId: "479687553274"
+          };
+          firebase.initializeApp(config);
+        </script>
+
     </head>
 
     <body>
