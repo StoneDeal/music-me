@@ -2,13 +2,13 @@
 {% block content %}
 
 <h2>Register New Account</h2>
-<form action="/signup" method="post" id="submit-button">
-  <p><label>Username <input type="text" id="username"/></label></p>
-  <p><label>New Password <input type="password" id="password"/></label></p>
-  <p><label>Verify Password <input type="password" id="verify"/></label></p>
-  <p><input type="submit" value="Register" id="signup-submit"/></p>
+<form action="/signup" method="post" name="submit-button">
+  <p><label>Username <input type="text" name="username"/></label></p>
+  <p><label>New Password <input type="password" name="password"/></label></p>
+  <p><label>Verify Password <input type="password" name="verify"/></label></p>
+  <p><input type="submit" value="Register" name="signup-submit"/></p>
 </form>
 
-<script src="{{url_for('static', filename='signup.js')}}"></script>
+<!-- <script src="{{url_for('static', filename='signup.js')}}"></script> -->
 
 {% endblock %}
