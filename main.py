@@ -31,14 +31,35 @@ class Artist(db.Model):
         self.mbid = mbid
         self.owner = owner
 
+'''
+@app.before_request
+def require_login():
+    allowed_routes = ['login', 'signup', 'home', 'index', 'artist']
+    if request.endpoint not in allowed_routes and 'user' not in session:
+        return redirect('/home')
+'''
+
+
 @app.route("/", methods=['POST', 'GET'])
 def index():
+    return redirect("/home")
+
+
+@app.route("/home", methods=['POST', 'GET'])
+def home():
     return render_template('index.html')
 
 
 @app.route("/artist", methods=['POST', 'GET'])
 def artist():
     return render_template('artist.html')
+
+
+@app.route("/profile", methods=['POST', 'GET'])
+def profile():
+    if 'user' not in session:
+        return redirect("/home")
+    return render_template('profile.html')
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -54,7 +75,7 @@ def login():
             if password == user.password:
                 session['user'] = user.username
                 flash('welcome back, '+user.username)
-                return redirect("/")
+                return redirect("/home")
         flash('bad username or password')
         return redirect("/login")
 
@@ -113,7 +134,7 @@ def signup():
         db.session.add(user)
         db.session.commit()
         session['user'] = user.username
-        return redirect("/")
+        return redirect("/home")
     else:
         return render_template('signup.html')
 
@@ -121,7 +142,7 @@ def signup():
 @app.route("/logout", methods=['POST'])
 def logout():
     del session['user']
-    return redirect("/signup")
+    return redirect("/login")
 
 
 if __name__ == '__main__':

@@ -32,14 +32,19 @@ function viewArtist(callback) {
 function render() {
         
         $("#artist").empty();
-        console.log(model.artistInfo.artist.image[3]['#text'])
+        console.log(model.artistInfo.artist)
+        var href = "/profile?artist=" + getParameterByName('artist');
         var title = "<h3>" + model.artistInfo.artist.name + "</h3>";
         var image = "<img id='band-img' src='" + model.artistInfo.artist.image[3]["#text"] + "'>"; 
+        var url = "<h4><a href='" + model.artistInfo.artist.url + "' target='_blank'>Listen</a></h4>";
+        var like = "<h4><a href='" + href + "'>I Like This!</a></h4>";
               
         var artistSpan = $("<span></span>")
         .attr("class", "tag")
         .append(image)
-        .append(title);
+        .append(title)
+        .append(url)
+        .append(like);
         
         $('#artist').append(artistSpan);
     }
