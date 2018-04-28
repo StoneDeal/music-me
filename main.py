@@ -59,7 +59,21 @@ def artist():
 def profile():
     if 'user' not in session:
         return redirect("/home")
-    return render_template('profile.html')
+    if request.args.get('artist') != None:
+        artist_mbid = request.args.get('artist')
+        artist_db_count = Artist.query.filter_by(mbid=artist_mbid, owner_id=session['user_id']).count()
+        if artist_db_count == 0:
+            owner = User.query.filter_by(username=session['user']).first()
+            new_artist = Artist(artist_mbid, owner)
+            db.session.add(new_artist)
+            db.session.commit()
+    liked_artist_count = Artist.query.filter_by(owner_id=session['user_id']).count()
+    artist_tags = []
+    if liked_artist_count > 0:
+        liked_artists = Artist.query.filter_by(owner_id=session['user_id'])
+        for artist in liked_artists:
+            artist_tags.append(artist.mbid)
+    return render_template('profile.html', artist_tags=artist_tags)
 
 
 @app.route("/login", methods=['GET', 'POST'])
@@ -74,6 +88,7 @@ def login():
             user = users.first()
             if password == user.password:
                 session['user'] = user.username
+                session['user_id'] = user.id
                 flash('welcome back, '+user.username)
                 return redirect("/home")
         flash('bad username or password')
@@ -134,6 +149,7 @@ def signup():
         db.session.add(user)
         db.session.commit()
         session['user'] = user.username
+        session['user_id'] = user.id
         return redirect("/home")
     else:
         return render_template('signup.html')

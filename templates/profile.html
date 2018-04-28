@@ -5,6 +5,12 @@
             
         </div>
 
+        <div id="artists-mbid">
+            {% for artist in artist_tags %}
+            <li>{{artist}}</li>
+            {% endfor %}
+        </div>
+
         <script src="{{url_for('static', filename='profile.js')}}"></script>
         
 {% endblock %}
