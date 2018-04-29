@@ -40,11 +40,13 @@ function render() {
 
     var title = "<h4>" + model.artistInfo.artist.name + "</h4>";
     var image = "<img id='band-img' src='" + model.artistInfo.artist.image[2]["#text"] + "'>";
+    var remove = "<form method='POST' action='/unlike-artist'><input type='hidden' name='artist-id' value='" + artistMbid +"' /><button type='submit' class='btn'>Remove</button></form>";
             
     var artistSpan = $("<span></span>")
     .attr("class", "tag")
     .append(image)
-    .append(title);
+    .append(title)
+    .append(remove);
 
     $('#artist').append(artistSpan);
 }

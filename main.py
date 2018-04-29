@@ -76,6 +76,18 @@ def profile():
     return render_template('profile.html', artist_tags=artist_tags)
 
 
+@app.route('/unlike-artist', methods=['POST'])
+def unlike_artist():
+
+    artist_mbid = request.form['artist-id']
+    Artist.query.filter_by(owner_id=session['user_id'], mbid=artist_mbid).delete()
+    #task = Task.query.get(task_id)
+    #task.completed = True
+    #db.session.add(task)
+    db.session.commit()
+    return redirect('/profile')
+
+
 @app.route("/login", methods=['GET', 'POST'])
 def login():
     if request.method == 'GET':
@@ -158,6 +170,7 @@ def signup():
 @app.route("/logout", methods=['POST'])
 def logout():
     del session['user']
+    del session['user_id']
     return redirect("/login")
 
 
