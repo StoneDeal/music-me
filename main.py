@@ -58,7 +58,7 @@ def artist():
 @app.route("/profile", methods=['POST', 'GET'])
 def profile():
     if 'user' not in session:
-        return redirect("/home")
+        return redirect("/login")
     if request.args.get('artist') != None:
         artist_mbid = request.args.get('artist')
         artist_db_count = Artist.query.filter_by(mbid=artist_mbid, owner_id=session['user_id']).count()
@@ -81,11 +81,21 @@ def unlike_artist():
 
     artist_mbid = request.form['artist-id']
     Artist.query.filter_by(owner_id=session['user_id'], mbid=artist_mbid).delete()
-    #task = Task.query.get(task_id)
-    #task.completed = True
-    #db.session.add(task)
     db.session.commit()
     return redirect('/profile')
+
+
+@app.route("/recommended", methods=['POST', 'GET'])
+def recommended():
+    if 'user' not in session:
+        return redirect("/login")
+    liked_artist_count = Artist.query.filter_by(owner_id=session['user_id']).count()
+    artist_tags = []
+    if liked_artist_count > 0:
+        liked_artists = Artist.query.filter_by(owner_id=session['user_id'])
+        for artist in liked_artists:
+            artist_tags.append(artist.mbid)
+    return render_template('recommended.html', artist_tags=artist_tags)
 
 
 @app.route("/login", methods=['GET', 'POST'])
