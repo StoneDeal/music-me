@@ -65,8 +65,9 @@ function render() {
     .append(likedArtist);
 
     model.simArtistInfo.similarartists.artist.forEach(function(artist) {
-        
-    var title = "<h6>" + artist.name + "</h6>";
+     
+    var artistHref = "/artist?artist=" + artist.mbid;
+    var title = "<h6><a href='" + artistHref + "'>" + artist.name + "</a></h6>";
     var image = "<img id='band-img' src='" + artist.image[2]["#text"] + "'>";
             
     var artistSpan = $("<span></span>")
