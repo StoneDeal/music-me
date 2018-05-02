@@ -7,13 +7,15 @@ var api = {
     token: "eeac2a521ed64a26c3d6d1217bdc4aa2"
 }
 
+var searchMethod = "chart.getTopArtists"
+
 function popularArtists(callback) {
     
       $.ajax({
         url: api.root,
         data: {
-          limit: 20,
-          method: "chart.getTopArtists",
+          limit: 28,
+          method: searchMethod,
           api_key: api.token,
           format: "json"
           

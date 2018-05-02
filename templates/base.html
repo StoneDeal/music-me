@@ -12,14 +12,12 @@
     
         <link rel="stylesheet" href="{{url_for('static', filename='styles.css')}}"/>
 
-
     </head>
 
     <body>
 
         <div id="login-bar" style='float: right'>
             {% if 'user' in session %}
-            {{ session['user'] }}
             <form action="/logout" method="post" id='logout'>
                 <input type="submit" value="Log Out" />
             </form>
