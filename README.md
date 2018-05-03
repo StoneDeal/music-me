@@ -13,17 +13,17 @@ Browse Music: Users are able to browse bands, adding artists they like to their 
 Recommended: Based on the user's list of interests, this page will display recommendations for them.</p>
 <h3>Technologies</h3>
 
-JavaScript
-Jquery
-Ajax
-Python
-Jinja 2 Templates
-Flask
-MySQL
-SQLAlchemy
-HTML
-CSS
-Bootstrap
+<p>JavaScript</p>
+<p>Jquery</p>
+<p>Ajax</p>
+<p>Python</p>
+<p>Jinja 2 Templates</p>
+<p>Flask</p>
+<p>MySQL</p>
+<p>SQLAlchemy</p>
+<p>HTML</p>
+<p>CSS</p>
+<p>Bootstrap</p>
 
 
 <h3>License</h3>
