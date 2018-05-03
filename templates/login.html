@@ -2,11 +2,28 @@
 {% block content %}
 
 <h2>Login</h2>
-<a href="/signup">Create Account</a>
+<a href="/signup" style="padding: 5%">Create Account</a>
 <form action="/login" method="post">
-  <p><label>Username<input type="text" name="username"/></label></p>
-  <p><label>Password<input type="password" name="password"/></label></p>
-  <p><input type="submit" value="Login"/></p>
+  <table id="table">
+  <tr>
+  <td>
+  <label>Username</label>
+  </td>
+  <td>
+  <input type="text" name="username" value="{{ username }}"/>
+  </td>
+  </tr>
+  <tr>
+  <td>
+  <label>Password</label>
+  </td>
+  <td>
+  <input type="password" name="password"/>
+  </td>
+  </tr>
+  </table>
+  <input type="submit" value="Login" class="btn"/>
 </form>
+<p class="error">{{ login_error }}</p>
 
 {% endblock %}

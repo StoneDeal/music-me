@@ -55,11 +55,16 @@ function render() {
         .attr("href", artistUrl);
         $('#popular-artists').append(artistUrl);
         */
-        var artistHref = "/artist?artist=" + artist.mbid;
+        if (artist.mbid == "") {
+          var artistHref = "/artist?tag=" + artist.name;
+        }
+        else {
+          var artistHref = "/artist?artist=" + artist.mbid;
+        }
         
         var title = "<br/><h6><a id='artist-name' href='" + artistHref + "'>" + artist["name"] + "</a></h6>";
         //var image = "<img src='" + artist.image[0].text + "' />"
-        var image = "<img id='band-img' src=" + artist.image[2]["#text"] + ">";
+        var image = "<a href='" + artistHref + "'>" + "<img id='band-img' src=" + artist.image[2]["#text"] + ">" + "</a>";
         
       
         var artistSpan = $("<span></span>")

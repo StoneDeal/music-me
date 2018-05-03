@@ -12,8 +12,40 @@ body {
     margin-top: 5%;
     margin-right: 10%;
     margin-left: 10%;
+    color: white;
 }
 
 .tag {
+    color: #660033;
+}
+
+.error {
+    color: red;
+}
+
+#table {
+    text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    color: white;
+    background-color: #660033;
+}
+
+#artist-name {
+    color: #660033;
+}
+
+#nav {
+    color: white;
+}
+
+a {
+    color: #660033;
+}
+
+h3 {
     color: #660033;
 }

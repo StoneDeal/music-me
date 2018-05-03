@@ -3,12 +3,37 @@
 
 <h2>Register New Account</h2>
 <form action="/signup" method="post" name="submit-button">
-  <p><label>Username <input type="text" name="username"/></label></p>
-  <p><label>New Password <input type="password" name="password"/></label></p>
-  <p><label>Verify Password <input type="password" name="verify"/></label></p>
-  <p><input type="submit" value="Register" name="signup-submit"/></p>
+  <table id="table">
+    <tr>
+    <td>
+    <label>Username</label>
+    </td>
+    <td>
+    <input type="text" name="username" value="{{ username }}"/>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <label>New Password </label>
+    </td>
+    <td>
+    <input type="password" name="password"/>
+    </td>
+    </tr>
+    <tr>
+    <td>
+    <label>Verify Password</label>
+    </td>
+    <td>
+    <input type="password" name="verify"/>
+    </td>
+    </tr>
+  </table>
+  <input type="submit" value="Register" name="signup-submit" class="btn"/>
 </form>
-
+<p class="error">{{ username_error }}</p>
+<p class="error">{{ password_error }}</p>
+<p class="error">{{ password_match_error }}</p>
 <!-- <script src="{{url_for('static', filename='signup.js')}}"></script> -->
 
 {% endblock %}

@@ -19,10 +19,10 @@
         <div id="login-bar" style='float: right'>
             {% if 'user' in session %}
             <form action="/logout" method="post" id='logout'>
-                <input type="submit" value="Log Out" />
+                <input type="submit" value="Log Out" class="btn"/>
             </form>
             {% else %}
-            <a href="/login">login</a> | <a href="/signup">register</a>
+            <a id="nav" href="/login">Login</a> | <a id="nav" href="/signup">Register</a>
             {% endif %}
         </div>
 

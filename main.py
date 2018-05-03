@@ -57,6 +57,7 @@ def artist():
 
 @app.route("/profile", methods=['POST', 'GET'])
 def profile():
+    artist_error = ''
     if 'user' not in session:
         return redirect("/login")
     if request.args.get('artist') != None:
@@ -100,6 +101,7 @@ def recommended():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    login_error = ''
     if request.method == 'GET':
         return render_template('login.html')
     elif request.method == 'POST':
@@ -113,8 +115,8 @@ def login():
                 session['user_id'] = user.id
                 flash('welcome back, '+user.username)
                 return redirect("/home")
-        flash('bad username or password')
-        return redirect("/login")
+        login_error = 'Bad username or password.'
+        return render_template("login.html", login_error=login_error, username=username)
 
 
 def valid_user(string):
@@ -154,25 +156,33 @@ def signup():
         username = request.form['username']
         password = request.form['password']
         verify = request.form['verify']
+        username_error = ' '
+        password_error = ' '
+        password_match_error = ' '
+        user_taken_error = ' '
+        error_count = 0
         if valid_user(username) == False:
-            flash('Please enter a valid username')
-            return redirect('/signup')
+            error_count += 1
+            username_error = "Please enter a valid username."
         user_db_count = User.query.filter_by(username=username).count()
         if user_db_count > 0:
-            flash('yikes! "' + username + '" is already taken and password reminders are not implemented')
-            return redirect('/signup')
+            error_count += 1
+            user_taken_error = "Sorry! That username is already taken."
         if valid_pass(password) == False:
-            flash('Please enter a valid password')
-            return redirect('/signup')
+            error_count += 1
+            password_error = "Please enter a valid password."
         if password != verify:
-            flash('passwords did not match')
-            return redirect('/signup')
-        user = User(username=username, password=password)
-        db.session.add(user)
-        db.session.commit()
-        session['user'] = user.username
-        session['user_id'] = user.id
-        return redirect("/home")
+            error_count += 1
+            password_match_error = "Passwords did not match."
+        if error_count == 0:
+            user = User(username=username, password=password)
+            db.session.add(user)
+            db.session.commit()
+            session['user'] = user.username
+            session['user_id'] = user.id
+            return redirect("/home")
+        else:
+            return render_template('signup.html', username=username, username_error=username_error, password_match_error=password_match_error, password_error=password_error)
     else:
         return render_template('signup.html')
 
