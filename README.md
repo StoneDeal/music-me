@@ -12,7 +12,7 @@ Browse Music: Users are able to browse bands, adding artists they like to their 
 
 Recommended: Based on the user's list of interests, this page will display recommendations for them.</p>
 <h3>Technologies</h3>
-<p>
+
 JavaScript
 Jquery
 Ajax
@@ -24,7 +24,7 @@ SQLAlchemy
 HTML
 CSS
 Bootstrap
-</p>
+
 
 <h3>License</h3>
 
