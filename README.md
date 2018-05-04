@@ -27,4 +27,4 @@ Recommended: Based on the user's list of interests, this page will display recom
 
 
 <h3>License</h3>
-
+https://github.com/StoneDeal/tune-tracker/blob/master/LICENSE.txt
