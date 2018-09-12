@@ -2,7 +2,7 @@
 
 <h3>Overview</h3>
 <p>The goal of my project is to help users find new music to listen to.
-When setting up a profile, the user will provide examples of bands/genres they enjoy. They will then be provided with recommendations for bands they might also enjoy. There will be a basic browsing page where
+The user will provide examples of bands they like. They will then be provided with recommendations for similar bands they might also enjoy. There will be a basic browsing page where
 the user can independently find bands. The user will be able to update
 their list of band interests, and the website will continue to use this information to find new bands for them.</p>
 <h3>Features</h3>
