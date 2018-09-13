@@ -25,8 +25,8 @@ function likedArtist(callback) {
     data: {
         limit: 20,
         method: "artist.getinfo",
+        artist: artistMbid,
         api_key: api.token,
-        mbid: artistMbid,
         format: "json"
         
 
@@ -45,7 +45,7 @@ function recommendedArtists(callback) {
             limit: 5,
             method: "artist.getsimilar",
             api_key: api.token,
-            mbid: artistMbid,
+            artist: artistMbid,
             format: "json"
             
     

@@ -49,3 +49,11 @@ a {
 h3 {
     color: #660033;
 }
+
+img {
+    border-radius: 50px;
+}
+
+#search {
+    padding: 2%;
+}

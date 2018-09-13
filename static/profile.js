@@ -26,8 +26,8 @@ function likedArtists(callback) {
     data: {
         limit: 20,
         method: "artist.getinfo",
+        artist: artistMbid,
         api_key: api.token,
-        mbid: artistMbid,
         format: "json"
         
 
@@ -39,6 +39,7 @@ function likedArtists(callback) {
     }
     });
 }
+
 function render() {
 
     var title = "<h4>" + model.artistInfo.artist.name + "</h4>";

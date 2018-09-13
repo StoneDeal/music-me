@@ -14,9 +14,9 @@ function viewArtist(callback) {
         data: {
           limit: 20,
           method: "artist.getinfo",
-          api_key: api.token,
           artist: getParameterByName('tag'),
-          mbid: getParameterByName('artist'),
+          api_key: api.token,
+        //  mbid: getParameterByName('artist'),
           format: "json"
           
 
@@ -39,12 +39,11 @@ function render() {
     else {
         $("#artist").empty();
         
-        var href = "/profile?artist=" + model.artistInfo.artist.mbid;
+        var href = "/profile?artist=" + model.artistInfo.artist.name;
         var title = "<h3>" + model.artistInfo.artist.name + "</h3>";
         var image = "<img id='band-img' src='" + model.artistInfo.artist.image[3]["#text"] + "'>"; 
         var url = "<h4><a href='" + model.artistInfo.artist.url + "' target='_blank'>Listen</a></h4>";
         var like = "<h4><a href='" + href + "'>I Like This!</a></h4>";
-              
         var artistSpan = $("<span></span>")
         .attr("class", "tag")
         .append(image)
