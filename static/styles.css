@@ -57,3 +57,8 @@ img {
 #search {
     padding: 2%;
 }
+
+body {
+    background-image: url("media/audio-cassette-cassette-tape-1626481.jpg");
+    background-repeat: repeat;
+}
