@@ -3,6 +3,9 @@ $('li').each(function() {
     artistMbids.push( $(this).text() );
   });;
 console.log(artistMbids);
+if (artistMbids.length == 0) {
+    $('#no-artists').text("Go like some artists!");
+}
 
 artistMbids.forEach(function(artistMbid) {
 
